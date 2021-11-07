@@ -5,7 +5,7 @@ interface Props {
     onClick?: () => void;
 }
 
-export const MetaMaskLogo: React.FC<Props> = (props: Props) => {
+const MetaMaskLogo: React.FC<Props> = (props: Props) => {
     return (
         <div className={props.className} onClick={props.onClick}>
             <svg width="50" height="50" viewBox="0 0 35 33" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -42,3 +42,5 @@ export const MetaMaskLogo: React.FC<Props> = (props: Props) => {
         </div>
     );
 };
+
+export default MetaMaskLogo
