@@ -104,18 +104,21 @@ const Home: NextPage = () => {
   }, [account])
 
   async function deposit(amount: string) {
-
-    const transactionParameters = {
-      to: contract_addr,
-      from: account,
-      value: web3.utils.toHex(web3.utils.toWei(amount, 'ether')),
-    };
-    const txHash = await window.ethereum.request({
-      method: 'eth_sendTransaction',
-      params: [transactionParameters],
-    });
-    setAmount(0);
-    setInfo("Your tokens will be available soon!");
+    if (window.ethereum.networkVersion != 97) {
+      alert("Switch your Metamask to BSC test network to process the transaction!");
+    } else {
+      const transactionParameters = {
+        to: contract_addr,
+        from: account,
+        value: web3.utils.toHex(web3.utils.toWei(amount, 'ether')),
+      };
+      const txHash = await window.ethereum.request({
+        method: 'eth_sendTransaction',
+        params: [transactionParameters],
+      });
+      setAmount(0);
+      setInfo("Your tokens will be available soon!");
+    }
   }
 
   return (

@@ -104,18 +104,21 @@ const Home: NextPage = () => {
   }, [account])
 
   async function deposit(amount: string) {
-
-    const transactionParameters = {
-      to: contract_addr,
-      from: account,
-      value: web3.utils.toHex(web3.utils.toWei(amount, 'ether')),
-    };
-    const txHash = await window.ethereum.request({
-      method: 'eth_sendTransaction',
-      params: [transactionParameters],
-    });
-    setAmount(0);
-    setInfo("Your tokens will be available soon!");
+    if (window.ethereum.networkVersion != 3) {
+      alert("Switch your Metamask to Ropsten network to process the transaction!");
+    } else {
+      const transactionParameters = {
+        to: contract_addr,
+        from: account,
+        value: web3.utils.toHex(web3.utils.toWei(amount, 'ether')),
+      };
+      const txHash = await window.ethereum.request({
+        method: 'eth_sendTransaction',
+        params: [transactionParameters],
+      });
+      setAmount(0);
+      setInfo("Your tokens will be available soon!");
+    }
   }
 
   return (
@@ -227,7 +230,7 @@ const Home: NextPage = () => {
           ) : (
             <div className="flex justify-around"><h2>No connected accounts</h2></div>
           )}
-                   <div className="mt-4 items-center flex flex-col">
+          <div className="mt-4 items-center flex flex-col">
             <h2 className="text-xs text-gray-700 font-bold mt-4">Ropsten network</h2>
             <Link href="/binance">
               <a className="font-sm focus:outline-none text-center font-bold text-yellow-400">Switch to BSC testnet</a>
