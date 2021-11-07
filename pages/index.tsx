@@ -206,7 +206,7 @@ const Home: NextPage = () => {
                       />
                       <button onClick={() => deposit(amount)} className="w-1/4 focus:outline-none bg-purple-600 rounded-lg ml-4 p-2 focus:bg-putple-500 focus:ring focus:border-purple-600 text-white font-bold">Buy</button>
                     </div>
-                    <h2 className="text-sm text-gray-700 mt-2">You'll get about: {(parseFloat(amount) / parseFloat(tokenPrice)) | 0} {tokenSymbol}</h2>
+                    <h2 className="text-sm text-gray-700 mt-2">You will get about: {(parseFloat(amount) / parseFloat(tokenPrice)) | 0} {tokenSymbol}</h2>
 
 
                     <h2 className="text-sm text-gray-700 font-bold mt-4">Check owh balance of the user:</h2>
