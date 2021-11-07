@@ -6,7 +6,7 @@ import { Web3Provider } from '@ethersproject/providers';
 import { useWeb3React as useWeb3ReactCore } from '@web3-react/core';
 import { InjectedConnector } from '@web3-react/injected-connector';
 import MetaMaskLogo from '../components/MetaMaskLogo';
-import { contract_addr, web3, getWalletBalance, getTokenName, getTokenSymbol, getTotalSupply, getTokenPrice, getEthBalance, owhBalanceOf } from '../scripts/ropsten_getbal.js';
+import { contract_addr, web3, getWalletBalance, getTokenName, getTokenSymbol, getTotalSupply, getTokenPrice, getEthBalance, owhBalanceOf } from '../scripts/binance_getbal.js';
 export const injected = new InjectedConnector({ supportedChainIds: [1, 3, 4, 5, 42, 97, 1337] });
 export var network_id: any;
 declare let window: any;
@@ -37,7 +37,7 @@ const Home: NextPage = () => {
   const [owhAccount, setOwhAccount] = React.useState<any>();
   const [owhBalance, setOwhBalance] = React.useState<any>();
   const [amount, setAmount] = React.useState<any>();
-  const [mainCurrency, setmainCurrency] = React.useState<any>("ETH");
+  const [mainCurrency, setmainCurrency] = React.useState<any>("BNB");
   const [info, setInfo] = React.useState<any>();
 
   async function fetchBalance() {
@@ -202,6 +202,10 @@ const Home: NextPage = () => {
               </div>
 
 
+
+
+
+
               {/* <form onSubmit={e => {
                         e.preventDefault();
                         handleContractBalanceOf();
@@ -227,13 +231,14 @@ const Home: NextPage = () => {
           ) : (
             <div className="flex justify-around"><h2>No connected accounts</h2></div>
           )}
-                   <div className="mt-4 items-center flex flex-col">
-            <h2 className="text-xs text-gray-700 font-bold mt-4">Ropsten network</h2>
-            <Link href="/binance">
-              <a className="font-sm focus:outline-none text-center font-bold text-yellow-400">Switch to BSC testnet</a>
+          <div className="mt-4 items-center flex flex-col">
+            <h2 className="text-xs text-gray-700 font-bold mt-4">Binance Smart Chain Testnet</h2>
+            <Link href="/">
+              <a className="font-sm focus:outline-none text-center font-bold text-blue-600">Switch to Ropsten network</a>
             </Link>
           </div>
         </div>
+
       </div>
 
 
