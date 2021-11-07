@@ -4,7 +4,7 @@ import * as React from 'react';
 import { Web3Provider } from '@ethersproject/providers';
 import { useWeb3React as useWeb3ReactCore } from '@web3-react/core';
 import { InjectedConnector } from '@web3-react/injected-connector';
-import MetaMaskLogo from './MetaMaskLogo';
+import MetaMaskLogo from '../components/MetaMaskLogo';
 import { getWalletBalance, getTokenName, getTokenSymbol, getTotalSupply, getTokenPrice, getEthBalance, owhBalanceOf } from '../scripts/getbalance.js';
 export const injected = new InjectedConnector({ supportedChainIds: [1, 3, 4, 5, 42, 97, 1337] });
 export var network_id: any;
